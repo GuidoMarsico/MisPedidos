@@ -23,7 +23,8 @@ var url = "localhost:8080/pedidos";
     }
 
     return{
-        init:init
+        init:init,
+        crearPedido:crearPedido
     }
 }());
 
