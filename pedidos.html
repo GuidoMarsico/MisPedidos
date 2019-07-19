@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/pedidos.css">
+    <title>MisPedidos</title>
+  </head>
+  <body onload="pedidos.vista.init();">
+		
+    <div class="container-fluid ">
+	
+		<h1 class="d-flex justify-content-center" >Crear Pedido</h1>
+	
+	     <p class="text-primary d-flex justify-content-center ">Complete los siguientes datos, para crear un pedido</p>
+
+		<hr>
+		<div class="form-group ">
+			<label for="nombre">Nombre</label>
+			<input type="text" placeholder="Ingresar Nombre del Pedido" class="form-control"  id="nombre">
+		</div>
+		<div class="form-group ">
+		  <label for="monto">Monto</label>
+		  <input type="number" placeholder="Ingresar monto" class="form-control"  id="monto">
+		</div>
+		<div class="form-group ">
+			<label for="descuento">Descuento</label>
+			<input type="number" placeholder="Ingresar descuento" class="form-control" id="descuento">
+		  </div>
+		  <div class="d-flex justify-content-center">
+			<button id="btnCrear" type="button" onclick="pedidos.vista.crearPedido();" class="btn btn-primary btn-crear">Crear</button>
+		  </div>
+	  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/pedidos.js"></script>
+</body>
+</html>
