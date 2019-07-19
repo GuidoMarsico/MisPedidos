@@ -30,4 +30,12 @@ input[type=text]:focus, [type=number]:focus {
 }
 
 
+input.error{
+   box-shadow: 0 0 3px #CC0000; margin: 10px 
+}
+
+.oculto{
+  display: none;
+}
+
 
