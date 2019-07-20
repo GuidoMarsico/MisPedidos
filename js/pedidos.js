@@ -1,11 +1,12 @@
 var pedidos = pedidos || {}
-var url = "localhost:8080/pedidos";
+var api_url = "http:/localhost:8080/pedidos";
 
  pedidos.vista = (function (){
      var mensajes;
     function init(){
         console.log("Comienza Pedidos")
         limpiarCampos();
+        resetMensajes();
     }
 
     function crearPedido(){
@@ -62,9 +63,9 @@ var url = "localhost:8080/pedidos";
     }
 
     function limpiarCampos(){
-        document.getElementById("nombre").innerHTML = "";
-        document.getElementById("monto").innerHTML = "";
-        document.getElementById("descuento").innerHTML = "";
+        document.getElementById("nombre").value = "";
+        document.getElementById("monto").value = "";
+        document.getElementById("descuento").value = "";
     }
 
     function resetMensajes(){
@@ -91,14 +92,16 @@ pedidos.service = (function (){
 
     function enviarPedido(){
         pedidos.vista.resetMensajes();
-        pedido = generarPedido();
-
+        let pedido = generarPedido();
+        let url = api_url+"/guardar";
         $.ajax({
             method: "POST",
-            url: url+"/guardar",
-            data: pedido
-          })
-            .done(function( resultado ) {
+            url: url,
+            data:JSON.stringify(pedido),
+            dataType:'json',
+            headers: {  'Access-Control-Allow-Origin': 'htt://site allowed to access' },
+            contentType: "application/json",
+          }).done(function( resultado ) {
                   if(resultado){
                     console.log('Exito');
                       pedidos.vista.mostrarExito()
@@ -107,13 +110,14 @@ pedidos.service = (function (){
                   }
             }).fail(function (error) {
                 pedidos.vista.mostrarError();
-            });
+            });     
     }
 
     function generarPedido(){
-        return { "nombre": document.getElementById("nombre").value,
-            "monto": document.getElementById("monto").value,
-            "descuento": document.getElementById("descuento").value}
+        return {"nombre": document.getElementById("nombre").value,
+                "monto": document.getElementById("monto").value,
+                "descuento": document.getElementById("descuento").value
+            }
     }
    
     return{
