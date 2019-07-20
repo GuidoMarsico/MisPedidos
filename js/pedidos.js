@@ -97,6 +97,9 @@ pedidos.service = (function (){
         $.ajax({
             method: "POST",
             url: url,
+            beforeSend: function( xhr ) {
+                $("#btnCrear").attr("disabled", true);
+              },
             data:JSON.stringify(pedido),
             dataType:'json',
             headers: {  'Access-Control-Allow-Origin': 'htt://site allowed to access' },
@@ -110,6 +113,8 @@ pedidos.service = (function (){
                   }
             }).fail(function (error) {
                 pedidos.vista.mostrarError();
+            }).always(function(){
+                $("#btnCrear").attr("disabled", false);
             });     
     }
 
